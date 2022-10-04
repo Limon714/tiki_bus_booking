@@ -8,6 +8,7 @@ const schema = buildSchema(`
 
 type Query{
     hello: String
+    welcome(name:String, dayOfWeek:String):String
 }
 
 `)
@@ -18,6 +19,11 @@ const root = {
     hello: () => {
         return 'hello world';
     },
+    welcome: (args) => {
+        console.log(args)
+        return `Welcome ${args.name} in the new world. Today is ${args.dayOfWeek}`;
+    },
+    
 }
 
 //End point
