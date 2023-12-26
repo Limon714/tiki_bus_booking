@@ -30,7 +30,7 @@
 
                 
                 <li>
-                  <a  wire:navigate href="#">
+                  <a  wire:navigate href="{{ route('seat') }}">
                     <i class='bx bx-handicap'></i>
                     <span class="links_name">Seat</span>
                   </a>
