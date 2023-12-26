@@ -38,7 +38,7 @@ class Location extends Controller
     $lc->location = $request->location;
     $lc->save();
 
-    return redirect(route('home'))->with('status','Update Sucessfully');
+    return redirect(route('dashboard'))->with('status','Update Sucessfully');
   }
 
   public function delete($id){
@@ -55,5 +55,10 @@ class Location extends Controller
       'data'=>$data
      ]);
   }
+
+ 
+
+
+
 
 }
