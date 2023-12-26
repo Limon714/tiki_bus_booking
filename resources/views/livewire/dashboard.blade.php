@@ -1,5 +1,9 @@
 <main class="p-8">
-    <div class="grid grid-cols-2">
+    @if (session()->has('status'))
+    <h4 class="ml-72">  {{ session('status') }}</h4>
+       
+    @endif
+    <div class="grid grid-cols-2 h-full">
 
     
     <form action="" method="post" class=" grid grid-rows-3 gap-4 w-[30%]">
@@ -9,12 +13,10 @@
         <button type="submit" class="bg-green-500 font-bold rounded">Submit</button>
     </form>
 
-    @if (session()->has('status'))
-    <h4>  {{ session('status') }}</h4>
-       
-    @endif
+    
 
-    <table class="border px-5">
+    <table class="border px-5 h-[160%]">
+        
         <tr>
             <th>ID NO</th>
             <th>Location</th>
@@ -28,8 +30,8 @@
             <td>{{ $dat->location }}</td>
             <td>{{ $dat->shift }}</td>
             <td style="text-align:center">
-                <a class="bg-green-500 rounded p-2" href="{{ route('edit',$dat->id ) }}"> Edit</a>
-                <a class="bg-red-900 rounded p-2 text-white" href="{{ route('delete',$dat->id ) }}">Delete</a>
+                <a wire:navigate class="bg-green-500 rounded p-2" href="{{ route('edit',$dat->id ) }}"> Edit</a>
+                <a wire:navigate class="bg-red-900 rounded p-2 text-white" href="{{ route('delete',$dat->id ) }}">Delete</a>
             </td>
         </tr>
         @endforeach

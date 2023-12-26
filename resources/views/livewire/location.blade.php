@@ -66,7 +66,37 @@
               </div>
             </nav>
             <div class="home-content">
-            {{ $slot }}
+                <main class="p-8 w-full ">
+   
+                    <table class="border w-full">
+                        
+                        <tr class="p-4">
+                            <th class="p-4">ID NO</th>
+                            <th>Name</th>
+                            <th>Mobile Number</th>
+                            <th>Payment</th>
+                            <th>Location</th>
+                            <th>Shift</th>
+                            <th style="text-align:center">Action</th>
+                
+                        </tr>
+                        @foreach ($data as $dat)
+                        <tr class="text-center bg-gray-300 border">
+                            <td class="p-4">{{ $dat->id }}</td>
+                            <td class="p-4">{{ $dat->name }}</td>
+                            <td>{{ $dat->phone_number }}</td>
+                            <td>{{ $dat->price }}</td>
+                            <td>{{ $dat->location }}</td>
+                            <td>{{ $dat->shift }}</td>
+                            <td style="text-align:center">
+                                <a wire:navigate class="bg-green-500 rounded p-2" href="{{ route('edit',$dat->id ) }}"> Edit</a>
+                                <a wire:navigate class="bg-red-900 rounded p-2 text-white" href="{{ route('delete',$dat->id ) }}">Delete</a>
+                            </td>
+                        </tr>
+                        @endforeach
+                    </table>
+                </div>
+                </main>
         </div>
           </section>
        
@@ -85,3 +115,7 @@
          <script src="https://cdn.tailwindcss.com"></script>
     </body>
 </html>
+
+
+
+
